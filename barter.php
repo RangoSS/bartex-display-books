@@ -58,7 +58,7 @@
              var outputs="";
                $.each(allBooks,function(){
                    
-                  outputs+="<p>"+(this).tittle+"</p>";
+                 // outputs+=(this).tittle;
                   outputs+="<p><a href="+(this).book_image+"></a></p>";
                
                });

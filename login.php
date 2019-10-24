@@ -3,6 +3,7 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/login2Style.css">
+<script type="text/javascript" src="js/md5.js"></script>
 
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
      <div class="container bg-white " >
@@ -118,8 +119,8 @@
                            </div><br><br>
                             <div class="form-group">
                                 
-                                <input type="submit" id="regis" name="submit" class="btn btn-info btn-md" value="submit" onclick="validateAfter();" />
-                                <input type="button" id="display" name="display" class="btn btn-info btn-md" value="display" onclick="displayAlls();"  />
+                                <input type="button" id="regis" name="submit" class="btn btn-info btn-md" value="submit" onclick="validateAfter();" />
+                               <!-- <input type="button" id="display" name="display" class="btn btn-info btn-md" value="display" onclick="displayAlls();"  />-->
                                 
                                 <input type="reset" id="regis" name="submit" class="btn btn-info btn-md" value="Reset"  />
                                 
@@ -247,11 +248,15 @@ function validateAfter(){
 	var fileUpload = $("#file").get(0);
 	var files = fileUpload.files[0];
 	
+  var passwords=$('#p_password').val();
+   hash=calcMD5(passwords); //converting passworrd 
+   
+   console.log(hash);
     
      formData.append('first_name',$("#first_name").val());
      formData.append('last_name',$("#last_name").val());
      formData.append('user_email',$('#user_email').val());
-     formData.append('p_password',$('#p_password').val());
+     formData.append('p_password',hash);
      formData.append('home_address',$("#home_address").val());
      formData.append('postal_address',$("#postal_address").val());
      formData.append('cellphone',$("#cellphone").val());
@@ -274,13 +279,15 @@ function validateAfter(){
         success: function (response) {
            
              console.log(response);
+             window.location.href="login.php";
+
 
    
 }
 });
 
 }
-
+/*
 function displayAlls(){
           
       $.ajax({
@@ -297,7 +304,7 @@ function displayAlls(){
              })
   
 }
-
+*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function login(){
   var emailt=$("#email2").val();
