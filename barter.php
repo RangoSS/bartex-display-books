@@ -14,7 +14,8 @@
         <div class="row">
         <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
            <!-- <h1 class="gallery-title">Upload Books:</h1>-->
-            <a href="bookUpload.php" class="btn btn-success btn-block mb-2 mt-2">Upload your books here</a>
+           <span id="unregistered" class="btn-block text-center" style="background-color: red;display: none;"> To upload books you must be a registered user:log in or sign up !</span>
+            <button type="button" class="btn btn-success btn-block mb-2 mt-2" onclick="goToBookUpload();">Upload your books here </button>
              <div align="center" style="border-style:solid ">
             <button class="btn btn-default filter-button all" onclick="$('.accBooks').hide();$('.target').show()">All</button>
             <button class="btn btn-default filter-button accs" onclick="$('.accBooks').show();$('.target').hide()">Acounting Science</button>
@@ -38,7 +39,9 @@
         </div>
         <div class="accBooks" style="display: none;"></div>
 
-          
+           
+
+
          <script type="text/javascript">
           $(document).ready(function(){
         //you will get this link on dropDownList.php
@@ -97,13 +100,29 @@
 }//closing response
 }); //closing ajax
     });//closing jquery
+
 </script>
 
+ <script>
+  function goToBookUpload(){
+  // <!--A user will not upload books without signing in or registered-->
+  
+<?php if(isset($_SESSION['first_name']) && $_SESSION['first_name'] != "")
+         { ?>
+         
+        
+            window.location.href="bookUpload.php";
+          
+ <?php } else{ ?>
+  
+  
+    $("#unregistered").show();
 
-            
-           
 
-
+<?php } ?>
+         
+}
+</script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
 
 
