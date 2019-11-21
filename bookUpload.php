@@ -125,26 +125,26 @@
     var option = $('#universe').find('option:selected');
     var university_id = option.val();//to get content of "value" attrib
     //var text = $option.text();//to get <option>Text</option> content
-      console.log(university_id);
+    //  console.log(university_id);
 
 
     //here i am searching for selected option
     var option = $('#cates').find('option:selected');
     var b_cat_id = option.val();//to get content of "value" attrib
     //var text = $option.text();//to get <option>Text</option> content
-    console.log(b_cat_id);
+   // console.log(b_cat_id);
 
     //here i am searching for selected option
     var option = $('#qualic').find('option:selected');
     var qualification_id = option.val();//to get content of "value" attrib
     //var text = $option.text();//to get <option>Text</option> content
-    console.log(qualification_id);
+   // console.log(qualification_id);
 
     var formData = new FormData();
 	var fileUpload = $("#file").get(0);//this get the attribute element
 	var files = fileUpload.files[0];// this array gets the file name /size and many more 
 	
-	  console.log(files);
+	 // console.log(files);
 	  
 
      formData.append('first_name',$('#first_name').val());
@@ -159,8 +159,13 @@
      formData.append('years',$("#years").val());//radio
      formData.append('file',files);   
      formData.append('action','uploading'); //action calling Insert function
-
+     
+      console.log("show meme",formData);
+      
     $.ajax({
+      
+
+
     	 url:"back_end_books.php",
     	 method:"POST",
     	 contentType:false,

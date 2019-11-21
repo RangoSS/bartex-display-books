@@ -62,19 +62,28 @@
                $.each(allBooks,function(){
                    
                  // outputs+=(this).tittle;
-                  outputs+="<p><a href="+(this).book_image+"></a></p>";
+                  outputs+="<p><a href="+(this).book_image+"></a> alt="+(this).tittle+" </p><br>";
+                 // outputs+="<p>="+(this).tittle+"</p>";
+                 // outputs+="<input class='btn btn-success' type='submit' value='view more'/>";
                
                });
+                
+             // console.log("kissss",$(this).children('img').attr("alt"));
                 console.log(outputs);
                 
                
             //this is the way of displaying url image array
              $.each($(outputs).find('a'),function(index,element){
-                var imgSrc =$(this).attr('href');//get url from 
+                var imgSrc =$(this).attr('href');//get url from
                 $(this).parent().remove();// remove p tag from 
                 $(this).remove();//remove the current a tag 
-                $(".target").append('<img  src="'+imgSrc + '"/>'); //then append to main tag
+               $(".target").append('<img  src="'+imgSrc + '"/>'); //then append to main tag
+
              });
+
+////////////////////////////////
+ 
+           
              ///////////////////////////////////////////////////
              //here is for accounting books
              var accoBooks=showAll.Acoounts; 
@@ -85,7 +94,7 @@
                   outputs+="<p>"+(this).tittle+"</p>";
                   outputs+="<p><a href="+(this).book_image+"></a></p>";
                });
-                console.log(outputs);
+               // console.log(outputs);
                 
                
             //this is the way of displaying url image array

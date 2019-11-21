@@ -63,7 +63,7 @@ $user_id= isset($_SESSION['user_id']) ? $_SESSION['user_id'] : "";
         <a class="nav-link font-weight-bold" href="service.php">Service</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link font-weight-bold" href="recorgnition.php">About us</a>
+        <a class="nav-link font-weight-bold" href="about.php">About us</a>
       </li>
      <!-- <input class="btn btn-outline-dark font-weight-bold btn-sm" type="submit" value="log in">-->
       <!-------------------------------------------------------------------------------------->
